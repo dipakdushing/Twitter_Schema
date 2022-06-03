@@ -3,8 +3,6 @@ const express = require("express");
 
 const Comment = require("../models/comment.model");
 
-
-
 const router = express.Router();
 
 // COMMENTS CRUD
@@ -35,7 +33,6 @@ router.post("", async (req, res) => {
   });
 
 
-
 router.get("/:id", async (req, res) => {
   try {
     const comment = await Comment.findById(req.params.id)
@@ -55,10 +52,13 @@ router.get("/:id", async (req, res) => {
 });
 
 router.patch("/:id", async (req, res) => {
+  
   try {
+    
     const comment = await Comment.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
     })
+    
       .populate({
         path: "postId",
         select: ["title"],
@@ -82,7 +82,5 @@ router.delete("/:id", async (req, res) => {
       return res.status(500).send({ message: err.message });
     }
   });
-
-
 
 module.exports = router;
