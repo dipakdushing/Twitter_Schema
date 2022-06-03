@@ -14,10 +14,6 @@ app.use("/users", usersController);
 app.use("/tweet" , postController );
 app.use("/reply", commentController);
 
-
-
-
-
 app.listen(6000, async () => {
   try {
     await connect();
@@ -25,7 +21,8 @@ app.listen(6000, async () => {
     console.log(err);
   }
 
-  console.log("listening on port 6000");
+  console.log("listening on port the  6000");
+  
 });
 
 module.exports = app
