@@ -5,7 +5,8 @@ const Post = require("../models/post.model");
 
 const router = express.Router();
 
-// POSTS CRUD
+// POSTS CRUD 
+
 router.get("", async (req, res) => {
   try {
     const posts = await Post.find()
